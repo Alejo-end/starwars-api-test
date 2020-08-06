@@ -7,7 +7,8 @@
 }
 
 @media all and (-ms-high-contrast: none) {
-  .grid-cards-main {
+  .grid-cards-main,
+  .grid-names {
     display: -ms-grid;
     -ms-grid-columns: repeat(3, 1fr);
     -ms-grid-rows: repeat(4, 1.5fr);
@@ -20,15 +21,15 @@
   grid-gap: 1rem;
 }
 
-.card {
+.card,
+.template-card {
   border: 2px solid #e7e7e7;
   border-radius: 4px;
   padding: 1rem;
 }
-.pos-left {
-  display: flex;
-  float: left;
-  margin: 20px !important;
+.pos-center {
+  display: initial;
+  margin: 30px !important;
 }
 .pos-right {
   display: flex;
@@ -42,6 +43,13 @@
   padding-left: 10%;
   padding-right: 10%;
 }
+.container button a {
+  text-decoration: none;
+}
+
 .container button {
   margin-left: 10px;
+}
+.container {
+  text-align: center !important;
 }

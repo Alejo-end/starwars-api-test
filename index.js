@@ -1,7 +1,10 @@
 const express = require('express');
 const fs = require('fs');
+const https = require('https');
 
 const app = express();
+
+const apiRandomUser = "https://randomuser.me/api/";
 
 const indexHTML = fs.readFileSync(`${__dirname}/index.html`, 'utf-8');
 const fetchOrderHTML = fs.readFileSync(`${__dirname}/fetchorder.html`, 'utf-8');
@@ -15,6 +18,16 @@ app.get('/', (req, res) => {
 });
 
 app.get('/fetch-order', (req, res) => {
+    https.get(apiRandomUser, (res) => {
+        res.on('data', (d) => {
+            let dataStr = d.toString();
+            let dataJSON = JSON.parse(dataStr);
+        });
+
+    }).on('error', (e) => {
+        console.error(e);
+    });
+
     res.send(fetchOrderHTML);
 });
 
