@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=
+    , initial-scale=1.0"
+    />
+    <title>Rootstack JS Test</title>
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- font -->
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css" />
+
+    <!-- css -->
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/skeleton.css" />
+
+    <!-- icons -->
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+  </head>
+  <body>
+
+  </body>
+</html>
+<script>
+  // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+
+  const div = document.getElementById('grid-cards');
+
+  const API = 'https://swapi.dev/api/';
+  // https://swapi.dev/api
+  // https://www.freecodecamp.org/
+  fetch(API + 'starships/', {
+    method: 'GET',
+    headers: {
+      'Content-type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      for (let i = 0; i < data.results.length; i++) {
+        let ship = data.results[i];
+        let t = `<div class="card">
+          <div class="information">
+            <h1 id="title-starship">${ship.name}</h1>
+            <p id="model">${ship.model}</p>
+            <p id="manufacturer">${ship.manufacturer}</p>
+            <p id="price">${ship.cost_in_credits}</p>
+            <p id="length">${ship.length}</p>
+            <p id="max_speed">${ship.max_atmosphering_speed}</p>
+            <p id="crew">${ship.crew}</p>
+            <p id="starship_class">${ship.starship_class}</p>
+          </div>
+        </div>`;
+        div.innerHTML += t;
+        console.log(t);
+      }
+    });
+</script>
