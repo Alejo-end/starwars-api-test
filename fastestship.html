@@ -7,13 +7,8 @@
       content="width=
     , initial-scale=1.0"
     />
-    <title>Rootstack JS Test</title>
+    <title>Planet By Terrain</title>
     <link rel="stylesheet" href="styles.css" />
-
-    <link rel="html" href="fetchfind.html" />
-    <link rel="html" href="fetchorder.html" />
-    <link rel="html" href="planetterrain.html" />
-    <link rel="html" href="index.html" />
 
     <!-- mobile -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -30,18 +25,24 @@
   </head>
   <body>
     <header>
+      <!-- Primary Page Layout
+      –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+      <div class="container pos-left">
+        <button href="/ ">Fetch & Order</button>
+        <button>Fetch & Find</button>
+        <button>Fetch & Count</button>
+        <button>Fastest Ship</button>
+        <button>Planet By Terrain</button>
+      </div>
+
       <div class="container">
         <img src="images/starwars.png" alt="Star Wars" class="logo-sw" />
       </div>
     </header>
+    <nav></nav>
     <section class="sec-main">
-      <div class="container">
-        <button><a href="/fetch-order">Fetch & Order</a></button>
-        <button><a href="/fetch-find">Fetch & Find</a></button>
-        <button><a href="/fetch-count">Fetch & Count</a></button>
-        <button><a href="/fastest-ship">Fastest Ship</a></button>
-        <button><a href="/planet-terrain">Planet By Terrain</a></button>
-      </div>
+      <button class="button-test" id="btn-tst">Start</button>
+      <div class=".grid-cards-main cards" id="grid-cards"></div>
     </section>
     <footer></footer>
   </body>
@@ -52,7 +53,6 @@
   const div = document.getElementById('grid-cards');
 
   const API = 'https://swapi.dev/api/';
-  const APIusers = 'https://randomuser.me/';
   // https://swapi.dev/api
   fetch(API + 'starships/', {
     method: 'GET',
