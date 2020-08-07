@@ -33,20 +33,23 @@
       </div>
       <div class="container">
         <!-- Logo y nombre de Actividad -->
-        <img src="images/starwars.png" alt="Star Wars" class="logo-sw" />
+        <img src="images/randomuser.png" alt="Randomuser" class="logo-ru" />
         <h1>Fetch & Find</h1>
       </div>
     </header>
     <!-- Parametro edad para busqueda -->
     <section class="sec-main">
-      <label for="Terrain">Introduzca la Edad:</label><input type="text" id="age" />
-      <!-- Botón de request de API -->
-      <button id="btn-request">Buscar</button>
+      <label for="Terrain">Introduzca la Edad:</label>
+      <form>
+        <input type="text" id="age" />
+        <!-- Botón de request de API -->
+        <button id="btn-request" type="submit">Buscar</button>
+      </form>
       <!-- Grid container de cards -->
       <div class="grid-names" id="card-container"></div>
     </section>
     <!-- footer -->
-    <footer></footer>
+    <footer style="text-align: center;"></footer>
   </body>
 </html>
 <script>

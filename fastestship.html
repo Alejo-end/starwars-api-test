@@ -38,23 +38,38 @@
       </div>
     </header>
     <nav></nav>
-    <!-- grid de cartas -->
+    <!-- form para submit de cantidad de pasajeros -->
     <section class="sec-main">
+      <label for="Terrain">Introduzca la cantidad de pasajeros que necesita su nave:</label>
+      <form>
+        <input type="number" id="passengers" />
+        <!-- Botón de request de API -->
+        <button id="btn-request" type="submit" onclick="passengersFunction">Buscar</button>
+      </form>
+      <!-- Grid contenedor de las cartas -->
       <div class=".grid-cards-main cards" id="grid-cards"></div>
     </section>
     <!-- footer -->
-    <footer></footer>
+    <footer style="text-align: center;"></footer>
   </body>
 </html>
 <script>
   // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
   const div = document.getElementById('grid-cards');
-  // función de ordenamiento
-  const mspeedFunction = (a, b) => {
-    if (a.passengers <= a.passengers) return 1;
-    if (a.passengers <= a.passengers) return 1;
-    if (a.passengers <= a.passengers) return 1;
-    if (a.passengers <= a.passengers) return 1;
+
+  const btn = document.getElementById('btn-request');
+
+  btn.onclick(passengersFunction);
+
+  // función de busqueda de nave adecuada
+  const passengersFunction = (passengers, results) => {
+    let passengersNum = [];
+    for (let i = 0; i < results.length; i++) {
+      if (results[i].passengers >= passengers) {
+        passengersNum.push(results[i]);
+      }
+    }
+    return passengersNum.fetch();
   };
   // función de llamada al API
   const API = 'https://swapi.dev/api/';
@@ -72,12 +87,12 @@
         let t = `<div class="card">
           <div class="information">
             <h1 id="title-starship">${ship.name}</h1>
+            <h3 id="crew">Crew: ${ship.crew}</h3>
             <h3 id="max_speed">Max Speed: ${ship.max_atmosphering_speed}</h3>
             <h4 id="model">Model: ${ship.model}</h5>
             <h5 id="price">Price: ${ship.cost_in_credits}</h5>
             <p id="manufacturer">Manufacturer: ${ship.manufacturer}</p>
             <p id="length">Length: ${ship.length}</p>
-            <p id="crew">Crew: ${ship.crew}</p>
             <p id="starship_class">Class: ${ship.starship_class}</p>
           </div>
         </div>`;

@@ -39,7 +39,8 @@ p {
   display: flex;
   float: right;
 }
-.logo-sw {
+.logo-sw,
+.logo-ru {
   width: 150px;
 }
 
