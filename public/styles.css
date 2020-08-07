@@ -5,6 +5,9 @@
   gap: 1px 1px;
   grid-template-areas: '. . .' '. . .' '. . .' '. . .';
 }
+p {
+  font-weight: 600;
+}
 
 @media all and (-ms-high-contrast: none) {
   .grid-cards-main,

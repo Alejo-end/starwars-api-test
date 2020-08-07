@@ -39,11 +39,11 @@
 
       <div class="container">
         <img src="images/starwars.png" alt="Star Wars" class="logo-sw" />
+        <h1>Fastest Starships</h1>
       </div>
     </header>
     <nav></nav>
     <section class="sec-main">
-      <button class="button-test" id="btn-tst">Start</button>
       <div class=".grid-cards-main cards" id="grid-cards"></div>
     </section>
     <footer></footer>
@@ -69,13 +69,13 @@
         let t = `<div class="card">
           <div class="information">
             <h1 id="title-starship">${ship.name}</h1>
-            <p id="model">${ship.model}</p>
-            <p id="manufacturer">${ship.manufacturer}</p>
-            <p id="price">${ship.cost_in_credits}</p>
-            <p id="length">${ship.length}</p>
-            <p id="max_speed">${ship.max_atmosphering_speed}</p>
-            <p id="crew">${ship.crew}</p>
-            <p id="starship_class">${ship.starship_class}</p>
+            <h3 id="max_speed">Max Speed: ${ship.max_atmosphering_speed}</h3>
+            <h4 id="model">Model: ${ship.model}</h5>
+            <h5 id="price">Price: ${ship.cost_in_credits}</h5>
+            <p id="manufacturer">Manufacturer: ${ship.manufacturer}</p>
+            <p id="length">Length: ${ship.length}</p>
+            <p id="crew">Crew: ${ship.crew}</p>
+            <p id="starship_class">Class: ${ship.starship_class}</p>
           </div>
         </div>`;
         div.innerHTML += t;

@@ -39,6 +39,7 @@
 
       <div class="container">
         <img src="images/starwars.png" alt="Star Wars" class="logo-sw" />
+        <h1>Planets By Terrain</h1>
       </div>
     </header>
     <nav></nav>
@@ -68,10 +69,10 @@
         let t = `<div class="card">
           <div class="information">
             <h1 id="name">${planet.name}</h1>
+            <h3 id="terrain">Terrain: ${planet.terrain}</h3>
             <p id="rotation_period">Rotation Period: ${planet.rotation_period}</p>
             <p id="diameter">Diameter: ${planet.diameter}</p>
             <p id="gravity">Gravity: ${planet.gravity}</p>
-            <p id="terrain">Terrain: ${planet.terrain}</p>
             <p id="population">Population: ${planet.population}</p>
             <p id="climate">Climate: ${planet.climate}</p>
           </div>
