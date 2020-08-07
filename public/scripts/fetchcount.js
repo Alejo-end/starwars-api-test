@@ -27,6 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
         .then((data) => {
             for (let i = 0; i < data.results.length; i++) {
                 let person = data.results[i];
+                let nombreCompleto = person.name.first + person.name.last;
+                nombreCompleto = nombreCompleto.toLowerCase();
+                let cuentaDeLetras = Object.entries(contarCaracteres(nombreCompleto)).sort(comparador).reverse();
+                let letraMasUsada = cuentaDeLetras[0][0];
                 let t = `<div class="card">
             <div class="information">
               <h1 id="name">Name: ${person.name.first} ${person.name.last}</h1>
@@ -34,8 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <p id="location">Country: ${person.location.country}</p>
               <p id="age">Age: ${person.dob.age}</p>
               <p id="email">Email: ${person.email}</p>
-              <p id="caracter">Letra comun: ${
-                    Object.entries(contarCaracteres(person.name.first + person.name.last)).sort(comparador).reverse()[0][0]}
+              <p id="caracter">Letra comun: ${letraMasUsada}
             </div>
           </div>`;
                 div.innerHTML += t;

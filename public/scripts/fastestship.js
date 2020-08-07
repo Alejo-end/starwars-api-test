@@ -1,7 +1,6 @@
 // Fastest Ship
 document.addEventListener('DOMContentLoaded', () => {
     const div = document.getElementById('grid-cards');
-
     const btn = document.getElementById('btn-request');
 
     btn.onclick(passengersFunction);
