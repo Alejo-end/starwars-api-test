@@ -9,24 +9,19 @@
     />
     <title>Fetch & Count</title>
     <link rel="stylesheet" href="styles.css" />
-
     <!-- mobile -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
     <!-- font -->
     <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css" />
-
     <!-- css -->
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/skeleton.css" />
-
     <!-- icons -->
     <link rel="icon" type="image/png" href="images/favicon.png" />
   </head>
   <body>
     <header>
-      <!-- Primary Page Layout
-      –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+      <!-- header container de paginas -->
       <div class="container pos-center">
         <div class="container">
           <button><a href="/fetch-order">Fetch & Order</a></button>
@@ -36,13 +31,13 @@
           <button><a href="/planet-terrain">Planet By Terrain</a></button>
         </div>
       </div>
-
+      <!-- logo y titulo de actividad -->
       <div class="container">
         <img src="images/starwars.png" alt="Star Wars" class="logo-sw" />
         <h1>Fetch & Count</h1>
       </div>
     </header>
-    <nav></nav>
+    <!-- grid de cartas -->
     <section class="sec-main">
       <div class="grid-names" id="card-container"></div>
     </section>
@@ -51,9 +46,9 @@
 </html>
 <script>
   // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
-
+  // variable de id del div de cartas
   const div = document.getElementById('card-container');
-
+  // función para encontrar el caracter más usado
   function contarCaracteres(str1) {
     var c = {};
     str1.replace(/\S/g, function (l) {
@@ -61,7 +56,7 @@
     });
     return c;
   }
-
+  //función de fetch al API
   const API = 'https://randomuser.me/api/';
   // https://randomuser.me/api/
   fetch(API + '?results=5', {
@@ -69,7 +64,7 @@
     headers: {
       'Content-type': 'application/json',
     },
-  })
+  }) // respuesta en JSON y formato de envio de data
     .then((response) => response.json())
     .then((data) => {
       for (let i = 0; i < data.results.length; i++) {

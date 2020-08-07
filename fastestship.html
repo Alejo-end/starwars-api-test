@@ -9,24 +9,19 @@
     />
     <title>Planet By Terrain</title>
     <link rel="stylesheet" href="styles.css" />
-
     <!-- mobile -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
     <!-- font -->
     <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css" />
-
     <!-- css -->
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/skeleton.css" />
-
     <!-- icons -->
     <link rel="icon" type="image/png" href="images/favicon.png" />
   </head>
   <body>
     <header>
-      <!-- Primary Page Layout
-      –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+      <!-- header container de paginas -->
       <div class="container pos-center">
         <div class="container">
           <button><a href="/fetch-order">Fetch & Order</a></button>
@@ -36,31 +31,32 @@
           <button><a href="/planet-terrain">Planet By Terrain</a></button>
         </div>
       </div>
-
+      <!-- logo y titulo de actividad -->
       <div class="container">
         <img src="images/starwars.png" alt="Star Wars" class="logo-sw" />
         <h1>Fastest Starships</h1>
       </div>
     </header>
     <nav></nav>
+    <!-- grid de cartas -->
     <section class="sec-main">
       <div class=".grid-cards-main cards" id="grid-cards"></div>
     </section>
+    <!-- footer -->
     <footer></footer>
   </body>
 </html>
 <script>
   // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
-
   const div = document.getElementById('grid-cards');
-
+  // función de ordenamiento
   const mspeedFunction = (a, b) => {
     if (a.passengers <= a.passengers) return 1;
     if (a.passengers <= a.passengers) return 1;
     if (a.passengers <= a.passengers) return 1;
     if (a.passengers <= a.passengers) return 1;
   };
-
+  // función de llamada al API
   const API = 'https://swapi.dev/api/';
   // https://swapi.dev/api
   fetch(API + 'starships/', {
@@ -68,7 +64,7 @@
     headers: {
       'Content-type': 'application/json',
     },
-  })
+  }) // respuesta en JSON y formato de envio de data
     .then((response) => response.json())
     .then((data) => {
       for (let i = 0; i < data.results.length; i++) {

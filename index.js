@@ -5,7 +5,7 @@ const https = require('https');
 const app = express();
 
 const apiRandomUser = "https://randomuser.me/api/";
-
+// variables para direccionamiento de cada pagina 
 const indexHTML = fs.readFileSync(`${__dirname}/index.html`, 'utf-8');
 const fetchOrderHTML = fs.readFileSync(`${__dirname}/fetchorder.html`, 'utf-8');
 const fetchFindHTML = fs.readFileSync(`${__dirname}/fetchfind.html`, 'utf-8');

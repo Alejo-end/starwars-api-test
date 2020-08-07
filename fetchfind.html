@@ -9,17 +9,13 @@
     />
     <title>Fetch & Find</title>
     <link rel="stylesheet" href="styles.css" />
-
     <!-- mobile -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
     <!-- font -->
     <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css" />
-
     <!-- css -->
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/skeleton.css" />
-
     <!-- icons -->
     <link rel="icon" type="image/png" href="images/favicon.png" />
   </head>
@@ -55,27 +51,19 @@
 </html>
 <script>
   // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
-
   //variables div y btn para el grid y el botón de request
-
   const div = document.getElementById('card-container');
   const btn = document.getElementById('btn-request');
-
   // request al API
-
   btn.onclick = fetchAPI;
-
   //función de filtrado recibiendo datos de edad y array
-
   function findFunction(age, results) {
     let filtrado = [];
-
     for (let i = 0; i < results.length; i++) {
       if (results[i].age >= age) {
         filtrado.push(results[i]);
       }
     }
-
     return filtrado;
   }
   //función de llamada al API
