@@ -48,6 +48,8 @@ p {
 }
 .container button a {
   text-decoration: none;
+  color: #707070;
+  font-weight: 600;
 }
 
 .container button {

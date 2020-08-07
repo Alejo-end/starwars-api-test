@@ -7,7 +7,7 @@
       content="width=
     , initial-scale=1.0"
     />
-    <title>Fetch & Order</title>
+    <title>Fetch & Count</title>
     <link rel="stylesheet" href="styles.css" />
 
     <!-- mobile -->
@@ -25,6 +25,8 @@
   </head>
   <body>
     <header>
+      <!-- Primary Page Layout
+      –––––––––––––––––––––––––––––––––––––––––––––––––– -->
       <div class="container pos-center">
         <div class="container">
           <button><a href="/fetch-order">Fetch & Order</a></button>
@@ -37,12 +39,12 @@
 
       <div class="container">
         <img src="images/starwars.png" alt="Star Wars" class="logo-sw" />
+        <h1>Fetch & Count</h1>
       </div>
     </header>
     <nav></nav>
     <section class="sec-main">
-      <button class="button-test" id="btn-tst">Start</button>
-      <div class=".grid-cards-main cards" id="grid-cards"></div>
+      <div class="grid-names" id="card-container"></div>
     </section>
     <footer></footer>
   </body>
@@ -50,11 +52,11 @@
 <script>
   // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
 
-  const div = document.getElementById('grid-cards');
+  const div = document.getElementById('card-container');
 
-  const API = 'https://randomuser.me/';
-  // https://randomuser.me/
-  fetch(API + 'starships/', {
+  const API = 'https://randomuser.me/api/';
+  // https://randomuser.me/api/
+  fetch(API + '?results=5', {
     method: 'GET',
     headers: {
       'Content-type': 'application/json',
@@ -63,21 +65,17 @@
     .then((response) => response.json())
     .then((data) => {
       for (let i = 0; i < data.results.length; i++) {
-        let ship = data.results[i];
+        let person = data.results[i];
         let t = `<div class="card">
-          <div class="information">
-            <h1 id="title-starship">${ship.name}</h1>
-            <p id="model">${ship.model}</p>
-            <p id="manufacturer">${ship.manufacturer}</p>
-            <p id="price">${ship.cost_in_credits}</p>
-            <p id="length">${ship.length}</p>
-            <p id="max_speed">${ship.max_atmosphering_speed}</p>
-            <p id="crew">${ship.crew}</p>
-            <p id="starship_class">${ship.starship_class}</p>
-          </div>
-        </div>`;
+            <div class="information">
+              <h1 id="name">Name: ${person.name.first} ${person.name.last}</h1>
+              <h3 id="gender">Gender: ${person.gender}</h3>
+              <p id="location">Country: ${person.location.country}</p>
+              <p id="age">Age: ${person.dob.age}</p>
+              <p id="email">Email: ${person.email}</p>
+            </div>
+          </div>`;
         div.innerHTML += t;
-        console.log(t);
       }
     });
 </script>
