@@ -3,7 +3,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const div = document.getElementById('grid-cards');
     const btn = document.getElementById('btn-request');
 
-    btn.onclick(passengersFunction);
+    const obtenerNaves = () => {
+        let naves = [];
+
+        // función de llamada al API
+        const API = 'https://swapi.dev/api/';
+
+        fetch(API + 'starships/', {
+            method: 'GET',
+            headers: {
+                'Content-type': 'application/json',
+            },
+        }) // respuesta en JSON y formato de envio de data
+            .then((response) => response.json())
+            .then((data) => {
+                for (let resultado in data.results) naves.push(resultado);
+                while (data.next != 'null') {
+                    fetch(data.next, {
+                        method: 'GET',
+                        headers: {
+                            'Content-type': 'application/json',
+                        },
+                    }).then((response) => response.json())
+                        .then((data) => {
+                            for (let resultado in data.results) naves.push(resultado);
+                        })
+                }
+            });
+
+        return naves;
+    }
 
     // función de busqueda de nave adecuada
     const passengersFunction = (passengers, results) => {
@@ -13,22 +42,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 passengersNum.push(results[i]);
             }
         }
-        return passengersNum.fetch();
+        return passengersNum;
     };
-    // función de llamada al API
-    const API = 'https://swapi.dev/api/';
-    // https://swapi.dev/api
-    fetch(API + 'starships/', {
-        method: 'GET',
-        headers: {
-            'Content-type': 'application/json',
-        },
-    }) // respuesta en JSON y formato de envio de data
-        .then((response) => response.json())
-        .then((data) => {
-            for (let i = 0; i < data.results.length; i++) {
-                let ship = data.results[i];
-                let t = `<div class="card">
+
+    let data = {
+        results: []
+    }
+
+    data.results = obtenerNaves();
+
+    for (let i = 0; i < data.results.length; i++) {
+        let ship = data.results[i];
+        let t = `<div class="card">
         <div class="information">
           <h1 id="title-starship">${ship.name}</h1>
           <h3 id="crew">Crew: ${ship.crew}</h3>
@@ -40,9 +65,8 @@ document.addEventListener('DOMContentLoaded', () => {
           <p id="starship_class">Class: ${ship.starship_class}</p>
         </div>
       </div>`;
-                div.innerHTML += t;
-                console.log(t);
-            }
-        });
+        div.innerHTML += t;
+        console.log(t);
+    }
 });
 

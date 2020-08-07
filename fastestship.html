@@ -40,14 +40,12 @@
       </div>
     </header>
     <nav></nav>
-    <!-- form para submit de cantidad de pasajeros -->
+    <!--  submit de cantidad de pasajeros -->
     <section class="sec-main">
       <label for="Terrain">Introduzca la cantidad de pasajeros que necesita su nave:</label>
-      <form>
-        <input type="number" id="passengers" name="passengers" min="0" />
-        <!-- Botón de request de API -->
-        <button id="btn-request" type="submit" onclick="passengersFunction">Buscar</button>
-      </form>
+      <input type="number" id="passengers" name="passengers" min="0" />
+      <!-- Botón de request de API -->
+      <button id="btn-request">Buscar</button>
       <!-- Grid contenedor de las cartas -->
       <div class=".grid-cards-main cards" id="grid-cards"></div>
     </section>
