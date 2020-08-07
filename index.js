@@ -21,7 +21,8 @@ app.get('/fetch-order', (req, res) => {
     https.get(apiRandomUser, (res) => {
         res.on('data', (d) => {
             let dataStr = d.toString();
-            let dataJSON = JSON.parse(dataStr);
+            console.log(dataStr);
+            fs.writeFileSync('caca.json', dataStr);
         });
 
     }).on('error', (e) => {
