@@ -54,6 +54,14 @@
 
   const div = document.getElementById('card-container');
 
+  function contarCaracteres(str1) {
+    var c = {};
+    str1.replace(/\S/g, function (l) {
+      c[l] = isNaN(c[l]) ? 1 : c[l] + 1;
+    });
+    return c;
+  }
+
   const API = 'https://randomuser.me/api/';
   // https://randomuser.me/api/
   fetch(API + '?results=5', {
@@ -73,6 +81,9 @@
               <p id="location">Country: ${person.location.country}</p>
               <p id="age">Age: ${person.dob.age}</p>
               <p id="email">Email: ${person.email}</p>
+              <p id="caracter">Letra comun: ${console.log(
+                Object.entries(contarCaracteres(person.name.first + person.name.last))
+              )}
             </div>
           </div>`;
         div.innerHTML += t;

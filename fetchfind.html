@@ -25,8 +25,6 @@
   </head>
   <body>
     <header>
-      <!-- Primary Page Layout
-      –––––––––––––––––––––––––––––––––––––––––––––––––– -->
       <div class="container pos-center">
         <div class="container">
           <button><a href="/fetch-order">Fetch & Order</a></button>
@@ -39,10 +37,14 @@
 
       <div class="container">
         <img src="images/starwars.png" alt="Star Wars" class="logo-sw" />
+        <h1>Fetch & Find</h1>
       </div>
     </header>
     <nav></nav>
     <section class="sec-main">
+      <label for="Terrain">Introduzca la Edad:</label><input type="text" id="age" />
+      <button id="btn-request">Buscar</button>
+
       <div class="grid-names" id="card-container"></div>
     </section>
     <footer></footer>
@@ -52,20 +54,36 @@
   // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
 
   const div = document.getElementById('card-container');
+  const btn = document.getElementById('btn-request');
 
+  btn.onclick = fetchAPI;
+
+  function findFunction(age, results) {
+    let filtrado = [];
+
+    for (let i = 0; i < results.length; i++) {
+      if (results[i].age >= age) {
+        filtrado.push(results[i]);
+      }
+    }
+
+    return filtrado;
+  }
   const API = 'https://randomuser.me/api/';
   // https://randomuser.me/api/
-  fetch(API, {
-    method: 'GET',
-    headers: {
-      'Content-type': 'application/json',
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      for (let i = 0; i < data.results.length; i++) {
-        let person = data.results[i];
-        let t = `<div class="card">
+  function fetchAPI() {
+    fetch(API + '?results=5', {
+      method: 'GET',
+      headers: {
+        'Content-type': 'application/json',
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        div.innerHTML = '';
+        for (let i = 0; i < data.results.length; i++) {
+          let person = data.results[i];
+          let t = `<div class="card">
             <div class="information">
               <h1 id="name">Name: ${person.name.first} ${person.name.last}</h1>
               <h3 id="gender">Gender: ${person.gender}</h3>
@@ -74,7 +92,8 @@
               <p id="email">Email: ${person.email}</p>
             </div>
           </div>`;
-        div.innerHTML += t;
-      }
-    });
+          div.innerHTML += t;
+        }
+      });
+  }
 </script>

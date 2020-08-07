@@ -25,8 +25,6 @@
   </head>
   <body>
     <header>
-      <!-- Primary Page Layout
-      –––––––––––––––––––––––––––––––––––––––––––––––––– -->
       <div class="container pos-center">
         <div class="container">
           <button><a href="/fetch-order">Fetch & Order</a></button>
@@ -44,6 +42,19 @@
     </header>
     <nav></nav>
     <section class="sec-main">
+      <label for="Terrain">Elija un tipo de terreno</label>
+      <select name="terrain" id="terrain">
+        <option value="desert">desert</option>
+        <option value="grasslands">grasslands</option>
+        <option value="mountains">mountains</option>
+        <option value="jungle">jungle</option>
+        <option value="rainforests">rainforests</option>
+        <option value="tundra">tundra</option>
+        <option value="ice_caves">ice caves</option>
+        <option value="mountain_ranges">mountain ranges</option>
+        <option value="swamp">swamp</option>
+      </select>
+      <button id="btn-request">Buscar</button>
       <div class=".grid-cards-main cards" id="grid-cards"></div>
     </section>
     <footer></footer>
