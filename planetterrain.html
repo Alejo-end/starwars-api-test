@@ -7,7 +7,8 @@
       content="width=
     , initial-scale=1.0"
     />
-    <title>Fetch & Order</title>
+    <!-- titulo superior de la pagina -->
+    <title>Planets By Terrain</title>
     <link rel="stylesheet" href="styles.css" />
 
     <!-- mobile -->
@@ -24,6 +25,7 @@
     <link rel="icon" type="image/png" href="images/favicon.png" />
   </head>
   <body>
+    <!-- header container de paginas -->
     <header>
       <div class="container pos-center">
         <div class="container">
@@ -34,13 +36,14 @@
           <button><a href="/planet-terrain">Planet By Terrain</a></button>
         </div>
       </div>
-
+      <!-- Logo y nombre de Actividad -->
       <div class="container">
         <img src="images/starwars.png" alt="Star Wars" class="logo-sw" />
         <h1>Planets By Terrain</h1>
       </div>
     </header>
     <nav></nav>
+    <!-- Parametro terreno para busqueda -->
     <section class="sec-main">
       <label for="Terrain">Elija un tipo de terreno</label>
       <select name="terrain" id="terrain">
@@ -54,17 +57,21 @@
         <option value="mountain_ranges">mountain ranges</option>
         <option value="swamp">swamp</option>
       </select>
+      <!-- Botón de request de API -->
       <button id="btn-request">Buscar</button>
+      <!-- Grid container de cards -->
       <div class=".grid-cards-main cards" id="grid-cards"></div>
     </section>
+    <!-- footer -->
     <footer></footer>
   </body>
 </html>
 <script>
   // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
 
+  //variable para el id del grid
   const div = document.getElementById('grid-cards');
-
+  //función de llamada al API
   const API = 'https://swapi.dev/api/';
   // https://swapi.dev/api/
   fetch(API + 'planets/', {
@@ -72,7 +79,7 @@
     headers: {
       'Content-type': 'application/json',
     },
-  })
+  }) // respuesta al en formato JSON y formato de data a crear
     .then((response) => response.json())
     .then((data) => {
       for (let i = 0; i < data.results.length; i++) {
