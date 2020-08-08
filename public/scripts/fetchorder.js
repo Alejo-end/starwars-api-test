@@ -1,6 +1,7 @@
 // fetch order
 
 document.addEventListener('DOMContentLoaded', () => {
+    //variables para el container
     const div = document.getElementById('card-container');
     // función de comparación de para ordenamiento alfabetico
     const compareFunction = (a, b) => {
@@ -19,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }) // respuesta en JSON y formato de data a ser mostrada
         .then((response) => response.json())
         .then((data) => {
+            // se ordenan los resultados y se muestran
             data.results.sort(compareFunction);
             for (let i = 0; i < data.results.length; i++) {
                 let person = data.results[i];

@@ -1,7 +1,7 @@
 // Fetch and Count
 
 document.addEventListener('DOMContentLoaded', () => {
-    // variable de id del div de cartas
+    // variable para el container
     const div = document.getElementById('card-container');
     // función para encontrar el caracter más usado
     const contarCaracteres = str1 => {

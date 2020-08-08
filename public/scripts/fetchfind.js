@@ -2,7 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    //variables div y btn para el grid y el botón de request
+    //variables para el grid, input de edad y el botón de request
     const div = document.getElementById('card-container');
     const btn = document.getElementById('btn-request');
     const ageInput = document.getElementById('age');

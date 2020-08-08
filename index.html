@@ -31,7 +31,7 @@
   <body>
     <header>
       <div class="container">
-        <img src="images/starwars.png" alt="Star Wars" class="logo-sw" />
+        <img src="images/randomuser.png" alt="Rootstack-Test" class="logo-ru" />
       </div>
     </header>
     <section class="sec-main">
@@ -40,46 +40,12 @@
         <button><a href="/fetch-find">Fetch & Find</a></button>
         <button><a href="/fetch-count">Fetch & Count</a></button>
         <button><a href="/fastest-ship">Fastest Ship</a></button>
-        <button><a href="/planet-terrain">Planet By Terrain</a></button>
       </div>
     </section>
     <footer style="text-align: center;">
-      <h5>Made by Alejandro De León</h5>
+      <br />
+      <br />
+      <p>Made by Alejandro De León</p>
     </footer>
   </body>
 </html>
-<script>
-  // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
-
-  const div = document.getElementById('grid-cards');
-
-  const API = 'https://swapi.dev/api/';
-  const APIusers = 'https://randomuser.me/';
-  // https://swapi.dev/api
-  fetch(API + 'starships/', {
-    method: 'GET',
-    headers: {
-      'Content-type': 'application/json',
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      for (let i = 0; i < data.results.length; i++) {
-        let ship = data.results[i];
-        let t = `<div class="card">
-          <div class="information">
-            <h1 id="title-starship">${ship.name}</h1>
-            <p id="model">${ship.model}</p>
-            <p id="manufacturer">${ship.manufacturer}</p>
-            <p id="price">${ship.cost_in_credits}</p>
-            <p id="length">${ship.length}</p>
-            <p id="max_speed">${ship.max_atmosphering_speed}</p>
-            <p id="crew">${ship.crew}</p>
-            <p id="starship_class">${ship.starship_class}</p>
-          </div>
-        </div>`;
-        div.innerHTML += t;
-        console.log(t);
-      }
-    });
-</script>
